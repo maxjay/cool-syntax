@@ -4,6 +4,9 @@ There currently is no Syntax Highlighting for COOL in VSCode, so I made my own. 
 
 __NOT A LINTER__
 
+## Screenshot
+![Screenshot of syntax highlighting](example.png)
+
 ## Some Syntax Stuff
 
 ### Keywords
@@ -14,3 +17,4 @@ __NOT A LINTER__
 
 ### Strings
 > "" | ''
+
