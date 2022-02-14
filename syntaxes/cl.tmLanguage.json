@@ -1,0 +1,151 @@
+{
+	"comment": "This adds support for the COOL programming language",
+	"fileTypes": [
+		"cl"
+	],
+	"name": "COOL",
+	"patterns": [
+		{
+			"include": "#strings"
+		},
+		{
+			"match": "--(.*)\\n",
+			"name": "comment.line.double-dash"
+		},
+		{
+			"begin": "\\(\\*",
+			"end": "\\*\\)",
+			"name": "comment.block.documentation"
+		},
+		{
+			"match": "(Int|String|Bool|Object|IO)",
+			"name": "support.class"
+		},
+		{
+			"match": "(?<=[\\.\\b\\t])(.*?)\\(",
+			"name": "support.function"
+		},
+		{
+			"match": "([a-zA-Z0-9_]*)\\(([\"'][A-Za-z0-9_]*[\"'])\\)",
+			"name": "definition.function.string.cool",
+			"captures": {
+				"1": {
+					"name": "support.function"
+				},
+				"2": {
+					"name": "string.quoted.single.cool"
+				}
+			}
+		},
+		{
+			"match": "([a-zA-Z0-9_]*)\\(([A-Za-z0-9_]*)\\)",
+			"name": "definition.function.variablecool",
+			"captures": {
+				"1": {
+					"name": "support.function"
+				},
+				"2": {
+					"name": "variable.parameter.cool"
+				}
+			}
+		},
+		{
+			"match": "\\b(if|fi|else|then|loop|pool|while|case|esac)\\b",
+			"name": "keyword.control.cool"
+		},
+		{
+			"comment": "Class definition",
+			"name": "definition.class.cool",
+			"match": "\\b((?i:class))\\s+([A-Z][A-Za-z0-9_]*)(\\s+((?i:inherits))\\s+([A-Z][A-Za-z0-9_]*))?\\b",
+			"captures": {
+				"1": {
+					"name": "keyword.cool"
+				},
+				"2": {
+					"name": "entity.name.type.cool"
+				},
+				"4": {
+					"name": "keyword.cool"
+				},
+				"5": {
+					"name": "entity.name.type.cool"
+				}
+			}
+		},
+		{
+			"comment": "Method definition",
+			"name": "definition.method.cool",
+			"match": "\\b([a-z][A-Za-z0-9_]*)\\s*\\(\\s*(?:([a-z][A-Za-z0-9_]*)\\s*:\\s*([A-Z][A-Za-z0-9_]*))?(?:\\s*,\\s*([a-z][A-Za-z0-9_]*)\\s*:\\s*([A-Z][A-Za-z0-9_]*))*\\s*\\)\\s*:\\s*([A-Z][A-Za-z0-9_]*)\\b",
+			"captures": {
+				"1": {
+					"name": "entity.name.function.cool"
+				},
+				"2": {
+					"name": "variable.parameter.cool"
+				},
+				"3": {
+					"name": "storage.type.cool"
+				},
+				"4": {
+					"name": "variable.parameter.cool"
+				},
+				"5": {
+					"name": "storage.type.cool"
+				},
+				"6": {
+					"name": "storage.type.cool"
+				}
+			}
+		},
+		{
+			"comment": "Control flow tokens",
+			"name": "keyword.control.cool",
+			"match": "\\b(?i:case|class|else|esac|fi|if|in|inherits|isvoid|let|loop|new|not|of|pool|then|while|self)\\b"
+		},
+		{
+			"match": "\\b(true|false)\\b",
+			"name": "constant.language"
+		},
+		{
+			"match": "(?x)\\b((?i:( [0-9]+ ( ' [0-9]+ )* )))",
+			"name": "constant.numeric"
+		},
+		{
+			"match": "\\b([A-Z]([A-Z]|[a-z]|[0-9]|_)*|SELF_TYPE)\\b",
+			"name": "entity.name.type"
+		},
+		{
+			"match": "\\b(class)\\b",
+			"name": "storage.modifier"
+		},
+		{
+			"match": "\\b(self)\\b",
+			"name": "variable.language"
+		},
+		{
+			"match": "\\b[a-z]([A-z]|[a-z]|[0-9]|_)*\\b",
+			"name": "variable.parameter"
+		},
+		{
+			"match": "\\b[a-z]*\\([a-z]*\\)\\b",
+			"name": "entity.name.function"
+		}
+	],
+	"repository": {
+		"strings": {
+			"patterns": [
+				{
+					"name": "string.quoted.single.cool",
+					"begin": "'",
+					"end": "'"
+				},
+				{
+					"name": "string.quoted.double.cool",
+					"begin": "\"",
+					"end": "\""
+				}
+			]
+		}
+	},
+	"scopeName": "source.cool"
+}

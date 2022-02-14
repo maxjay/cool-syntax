@@ -1,0 +1,25 @@
+{
+    "name": "cl-syntax",
+    "displayName": "cl-syntax",
+    "description": "Syntax support for COOL",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.64.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "cl",
+            "aliases": ["COOL", "cl"],
+            "extensions": [".cl"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "cl",
+            "scopeName": "source.cool",
+            "path": "./syntaxes/cl.tmLanguage.json"
+        }]
+    }
+}
